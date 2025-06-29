@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Me Enamoré - Para Lizbeth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fondo animado con ondas */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9a8b, #a8edea, #fed6e3, #d299c2);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Partículas flotantes mejoradas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Corazones flotantes mejorados */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            animation: heartFloat 8s linear infinite;
+            text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+            filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navegación moderna */
+        .container-navegacion {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .container-navegacion ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        .container-navegacion a {
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .container-navegacion li {
+            padding: 12px 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .container-navegacion li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-navegacion i {
+            margin-right: 8px;
+        }
+
+        /* Contenido principal */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Título principal mejorado */
+        .title-section {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 105, 180, 0.6); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container de letra mejorado */
+        .container_letra {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container_letra::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff9a8b, #a8edea, #fed6e3, #d299c2);
+            border-radius: 25px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        #letra {
+            color: rgb(224, 17, 17);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        #letra span {
+            display: block;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        #letra span:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: rgba(255, 192, 203, 0.8);
+            transform: translateX(10px);
+        }
+
+        /* Mensaje de amor mejorado */
+        .love-message {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-message::before {
+            content: '💕';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .love-quote {
+            font-size: 1.4rem;
+            color: white;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .te-amo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #ffb6c1;
+            text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Reproductor de música mejorado */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        .music-player button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa8a8);
+            color: rgb(240, 14, 14);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .music-player button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        #myAudio {
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Efectos interactivos */
+        .interactive {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interactive:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* Efectos de entrada */
+        .fade-in {
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+            
+            .container-navegacion {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .container-navegacion ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .main-content {
+                padding: 80px 15px 50px;
+            }
+            
+            .container_letra {
+                padding: 25px;
+            }
+            
+            #letra {
+                font-size: 1rem;
+            }
+            
+            .music-player {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                transform: none;
+            }
+            
+            .music-player button {
+                width: 100%;
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+
+        /* Animaciones adicionales */
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Corazones flotantes -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- Navegación -->
+    <header class="container-navegacion">
+        <ul>
+            <a href="mp3/WhatsApp Audio 2025-06-28 at 10.39.30 PM (online-audio-converter.com).mp3" class="interactive">
+                <li>
+                    <i class="fas fa-music"></i>
+                    Música
+                </li>
+            </a>
+            <a href="#memories" class="interactive">
+                <li>
+                    <i class="fas fa-heart"></i>
+                    Recuerdos
+                </li>
+            </a>
+        </ul>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Título -->
+        <div class="title-section">
+            <h1 class="main-title">Me Enamoré</h1>
+            <p class="subtitle">Una canción especial para ti</p>
+        </div>
+
+        <!-- Letra de la canción -->
+        <div class="container_letra">
+            <div id="letra">
+                <span id="parrafo1">
+                    Yeh yeah, yay <br>
+                    La Voz Favorita baby <br>
+                </span>
+                
+                <span id="parrafo2">
+                    Hola ¿Qué tal? ¿Cómo tú estás?<br>
+                    No quisiera molestarte, pero tuve que llamarte<br>
+                    Sé que quizás no lo esperabas<br>
+                    Pero tengo que confesarte, que me muero por besarte<br>
+                </span>
+                
+                <span id="parrafo3">
+                    Me tienes loco y no lo puedo negar<br>
+                    Y cuando me miras no sé cómo reaccionar<br>
+                    Cambiaste todo, no puedo ni pensar<br>
+                    Me tuve que desahogar, no vayas a cambiar <br>
+                </span>
+                
+                <span id="parrafo4">
+                    Me enamoré, sí, me enamoré<br>
+                    Entre tantos corazones en el tuyo me quedé<br>
+                    Y me enamoré, sí, me enamoré<br>
+                    Y no pude evitarlo por más que lo intenté<br>
+                </span>
+                
+                <span id="parrafo5">
+                    Me enamoré, me enamoré, (oh) yeh (oh), yeh (oh)<br>
+                    Me enamoré, me enamoré, ahh, ahh<br>
+                </span>
+                
+                <span id="parrafo6">
+                    Sé que te cuesta confiar, culpas tu pasado<br>
+                    No quieres volver a empezar, por todo lo que has llorado<br>
+                    Pensando que todos son igual no quieres perder tu tiempo<br>
+                    No sé si me vas a ignorar, por decirte lo que siento<br>
+                </span>
+                
+                <span id="parrafo7">
+                    Ya no voy a callarlo<br>
+                    Si me permites, contigo me quedo (yeah)<br>
+                    Tengo que aceptarlo<br>
+                    Trato de no pensarte pero ya no puedo<br>
+                </span>
+                
+                <span id="parrafo8">
+                    Me enamoré, sí, me enamoré<br>
+                    Entre tantos corazones en el tuyo me quedé<br>
+                    Y me enamoré, sí, me enamoré<br>
+                    Y no pude evitarlo por más que lo intenté<br>
+                </span>
+                
+                <span id="parrafo9">
+                    Imaginando que te tengo aquí, quisiera que digas que sí<br>
+                    ¿Qué puedo hacer si siempre te extraño?<br>
+                    No sé en lo que me convertí, pero cuando te vi<br>
+                    Siento que todo cambió<br>
+                </span>
+                
+                <span id="parrafo10">
+                    Estoy enamorado y no lo niego, yeah<br>
+                    Si tú no estás me siento ciego<br>
+                    Olvidarte ya no puedo<br>
+                    Tú tienes todo lo que quiero<br>
+                </span>
+                
+                <span id="parrafo11">
+                    Me enamoré, sí, me enamoré<br>
+                    (Yeh yeah, yeh yeah)<br>
+                    Y me enamoré, sí, me enamoré<br>
+                    Y no pude evitarlo por más que lo intenté<br>
+                </span>
+                
+                <span id="parrafo12">
+                    La Voz Favorita, baby<br>
+                </span>
+            </div>
+        </div>
+
+        <!-- Mensaje de amor -->
+        <div class="love-message interactive" id="memories">
+            <p class="love-quote">"En cada verso de esta canción encuentro las palabras que mi corazón quiere decirte"</p>
+            <p class="te-amo">Te Amo<br>LIZBETH💕</p>
+        </div>
+    </div>
+
+    <!-- Reproductor de música -->
+    <div class="music-player">
+        <button onclick="toggleMusic()">
+            <i class="fas fa-play" id="playIcon"></i>
+            <span id="playText">Play Music</span>
+        </button>
+        <audio id="myAudio" controls>
+            <source src="mp3/WhatsApp Audio 2025-06-28 at 10.39.30 PM (online-audio-converter.com).mp3" type="audio/mpeg">
+            <p>Your browser does not support the audio element. <a href="mp3/WhatsApp Audio 2025-06-28 at 10.39.30 PM (online-audio-converter.com).mp3">Download the audio</a>.</p>
+        </audio>
+    </div>
+
+    <script>
+        // Variables globales
+        let isPlaying = false;
+        const audio = document.getElementById('myAudio');
+        const playIcon = document.getElementById('playIcon');
+        const playText = document.getElementById('playText');
+
+        // Crear partículas flotantes mejoradas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 100; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = Math.random() * 8 + 4 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Crear corazones flotantes mejorados
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            const hearts = ['💕', '💖', '💗', '💘', '💝', '💜', '💙', '❤️', '🧡', '💛', '💚'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // Función mejorada para toggle de música
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+                playText.textContent = 'Play Music';
+                isPlaying = false;
+            } else {
+                audio.play().catch(e => {
+                    console.log('Error al reproducir audio:', e);
+                    alert('No se pudo cargar el archivo de audio. Por favor, asegúrate de tener el archivo MP3 disponible.');
+                });
+                playIcon.className = 'fas fa-pause';
+                playText.textContent = 'Pause Music';
+                isPlaying = true;
+            }
+        }
+
+        // Event listeners para el audio
+        audio.addEventListener('ended', function() {
+            playIcon.className = 'fas fa-play';
+            playText.textContent = 'Play Music';
+            isPlaying = false;
+        });
+
+        // Efectos de navegación mejorados
+        document.querySelectorAll('.container-navegacion a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href.includes('mp3')) {
+                    toggleMusic();
+                } else if (href === '#memories') {
+                    document.querySelector('#memories').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }
+            });
+        });
+
+        // Crear destellos aleatorios
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 1500);
+        }
+
+        // Efecto de texto que aparece gradualmente
+        function revealText() {
+            const spans = document.querySelectorAll('#letra span');
+            spans.forEach((span, index) => {
+                span.style.opacity = '0';
+                span.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    span.style.transition = 'all 0.8s ease';
+                    span.style.opacity = '1';
+                    span.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        // Inicializar efectos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Crear corazones cada 1.5 segundos
+            setInterval(createHeart, 1500);
+            
+            // Crear destellos cada 3 segundos
+            setInterval(createSparkle, 3000);
+            
+            // Revelar texto gradualmente
+            setTimeout(revealText, 1000);
+            
+            // Crear corazón inicial
+            setTimeout(createHeart, 500);
+        });
+
+        // Efecto de parallax mejorado
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const particles = document.querySelector('.particles');
+            const hearts = document.querySelector('.hearts');
+            
+            particles.style.transform = `translateY(${scrolled * 0.3}px)`;
+            hearts.style.transform = `translateY(${scrolled * 0.1}px)`;
+            
+            // Efecto de opacidad en el scroll
+            const elements = document.querySelectorAll('.interactive');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const visible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (visible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Efectos adicionales de hover
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.interactive').forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s ease';
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.filter = 'brightness(1.1)';
+                    
+                    // Crear mini corazones en hover
+                    for (let i = 0; i < 3; i++) {
+                        setTimeout(() => createSparkle(), i * 100);
+                    }
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.filter = 'brightness(1)';
+                });
+            });
+        });
+
+        // Efecto de click con ondas
+        document.addEventListener('click', function(e) {
+            const ripple = document.createElement('div');
+            ripple.style.position = 'fixed';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            ripple.style.width = '20px';
+            ripple.style.height = '20px';
+            ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s ease-out';
+            ripple.style.pointerEvents = 'none';
+            ripple.style.zIndex = '9999';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Añadir animación de ripple
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
